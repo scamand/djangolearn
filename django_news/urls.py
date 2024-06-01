@@ -21,3 +21,4 @@ urlpatterns = [
     path('news/', include('news.urls')),
     path('tasks/', include('tasks.urls')),
 ]
+
