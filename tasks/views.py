@@ -24,8 +24,8 @@ def task_create(request):
         # 否则，创建一个空表单
         form = TaskForm()
 
-        # 渲染表单
-        return render(request, 'tasks/task_form.html', {'form': form, })
+    # 渲染表单
+    return render(request, 'tasks/task_form.html', {'form': form, })
 
 # 取得任务列表
 def task_list(request):
