@@ -27,6 +27,7 @@ def task_create(request):
     # 渲染表单
     return render(request, 'tasks/task_form.html', {'form': form, })
 
+
 # 取得任务列表
 def task_list(request):
     # 从数据库获取Task对象列表
@@ -40,6 +41,7 @@ def task_detail(request, pk):
     # 从url里获取单个任务的pk值，然后查询数据库获得单个对象
     task = get_object_or_404(Task, pk=pk)
     return render(request, "tasks/task_detail.html", {"task": task, })
+
 
 # 更新任务
 def task_update(request, pk):
