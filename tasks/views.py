@@ -17,8 +17,13 @@ def task_create(request):
         if form.is_valid():
             # 如果表单有效，保存数据
             form.save()
+            # 显示任务细节
+            latest_task = Task.objects.latest('id')
+            latest_task_id = latest_task.id
+            task = get_object_or_404(Task, pk=latest_task_id)
+            return render(request, "tasks/task_detail.html", {"task": task, })
             # 重定向到任务列表
-            return redirect(reverse('tasks:task_list'))
+            # return redirect(reverse('tasks:task_list'))
 
     else:
         # 否则，创建一个空表单

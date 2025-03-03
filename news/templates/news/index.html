@@ -6,6 +6,10 @@
         <p>{{ elem.content }}</p>
     </li>
     {% endfor %}
+    
+    <p>
+        <a href="{% url 'tasks:task_list' %}">查看你的任务列表</a>
+    </p>
 </ul>
 {% else %}
 <p>暂无新闻</p>

@@ -9,7 +9,7 @@
 <body>
 <h3>Task List</h3>
 {% for task in tasks %}
-    <p>{{ forloop.counter }}. {{ task.name }} - {{ task.get_status_display }}
+    <p>{{ forloop.counter }}. {{ task.name }} - {{ task.get_status_display }} - {{ task.start_time }} - {{ task.deadline }}
         (<a href="{% url 'tasks:task_update' task.id %}">Update</a> |
         <a href="{% url 'tasks:task_delete' task.id %}">Delete</a>)
     </p>

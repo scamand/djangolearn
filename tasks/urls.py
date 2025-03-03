@@ -14,7 +14,7 @@ urlpatterns = [
     path('', views.task_list, name='task_list'),
 
     # Retrieve a single task object
-    re_path(r'^(?P<pk>\d+)/$', views.task_detail, name='task_detail'),
+    re_path(r'^(?P<pk>\d+)/detail$', views.task_detail, name='task_detail'),
 
     # Update a task object
     re_path(r'^(?P<pk>\d+)/update/$', views.task_update, name='task_update'),

@@ -11,6 +11,8 @@
     <a href="{% url 'tasks:task_delete' task.id %}">Delete</a>
 </p>
 <p> Task Status: {{ task.get_status_display }} </p>
+<p> Start Time: {{ task.start_time }}</p>
+<p> Deadline: {{ task.deadline }}</p>
 <p> <a href="{% url 'tasks:task_list' %}">View All Tasks</a> |
     <a href="{% url 'tasks:task_create'%}">New Task</a>
 </p>
