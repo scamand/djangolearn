@@ -3,17 +3,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport"   charset="UTF-8" content="width=device-width, 
+                                                    initial-scale=1.0, 
+                                                    maximum-scale=1.0, 
+                                                    user-scalable=no">
+
     <meta charset="UTF-8">
     <title>Task List</title>
+    <!-- 引入Bootstrap CSS以美化表格 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/5.3.2/css/bootstrap.min.css">
 </head>
 <body>
-<h3>Task List</h3>
-{% for task in tasks %}
-    <p>{{ forloop.counter }}. {{ task.name }} - {{ task.get_status_display }} - {{ task.start_time }} - {{ task.deadline }}
-        (<a href="{% url 'tasks:task_update' task.id %}">Update</a> |
-        <a href="{% url 'tasks:task_delete' task.id %}">Delete</a>)
-    </p>
-{% endfor %}
-<p> <a href="{% url 'tasks:task_create' %}"> + Add A New Task</a></p>
+<h1>Task List</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Task Name</th>
+            <th>Status</th>
+            <th>Start Time</th>
+            <th>Deadline</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ task.name }}</td>
+            <td>{{ task.get_status_display }}</td>
+            <td>{{ task.start_time }}</td>
+            <td>{{ task.deadline }}</td>
+            <td>
+                <a href="{% url 'tasks:task_update' task.id %}">Update</a> |
+                <a href="{% url 'tasks:task_delete' task.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p><a href="{% url 'tasks:task_create' %}">+ Add A New Task</a></p>
+
+<!-- 引入jQuery -->
+<script src="https://cdn.staticfile.net/jquery/3.7.1/jquery.min.js"></script>
+<!-- 引入Bootstrap JS -->
+<script src="https://cdn.staticfile.net/twitter-bootstrap/5.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>
